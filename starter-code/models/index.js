@@ -14,6 +14,10 @@ var Song = sequelize.import("./song");
 Song.belongsTo(Artist);
 Artist.hasMany(Song);
 
+Artist.belongsTo(Manager);
+Manager.hasMany(Artist);
+
+
 
 module.exports.models = {
 	Artist: Artist,

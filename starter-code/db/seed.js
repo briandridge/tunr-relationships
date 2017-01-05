@@ -15,6 +15,22 @@ var lucySongs = [
     }
 ];
 
+var extraArtists = [
+{
+	name:'Donny Dangle',
+	photoUrl:'http://img.informador.com.mx/biblioteca/imagen/677x508/811/810055.jpg',
+	nationality: 'Hereish',
+	instrument:'Spoons',
+	home_address:'I said he is from hereish'
+},
+{
+	name:'Prince',
+	photoUrl:'http://img.informador.com.mx/biblioteca/imagen/677x508/811/810055.jpg',
+	nationality: 'Outer Space',
+	instrument:'Your Soul',
+	home_address:'Your Dreams'
+}];
+
 var artistCreate = function() {
 	return DB.Artist.create({
     name: 'Luciano Pavarotti',
@@ -37,6 +53,14 @@ var managerCreate = function() {
     email: 'rbobby@gmail.com',
     office_number: '516-877-0304',
     cell_phone_number: '718-989-1231'
+	})
+	.then (function(manager){
+		extraArtists.forEach(function(artist){
+			artist.managerId = manager.id;
+			console.log(artist.managerId);
+		});
+		console.log(manager.id);
+	DB.Artist.bulkCreate(extraArtists);
 	});
 };
 

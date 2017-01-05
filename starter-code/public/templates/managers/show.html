@@ -2,3 +2,7 @@
 <h3>{{managerController.oneManager.email}}</h3>
 <h3>{{managerController.oneManager.office_number}}</h3>
 <h3>{{managerController.oneManager.cell_phone_number}}</h3>
+
+<ul>
+	<li ng-repeat = "artist in managerController.oneManager.artists">{{artist.name}}</li>
+</ul>

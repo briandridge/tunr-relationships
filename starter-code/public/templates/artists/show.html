@@ -2,4 +2,8 @@
 <h3>{{artistController.oneArtist.nationality}}</h3>
 <h3>{{artistController.oneArtist.instrument}}</h3>
 <h3>{{artistController.oneArtist.home_address}}</h3>
+<ul>
+  <li ng-repeat="song in artistController.oneArtist.songs">{{song.title}}</li>
+</ul>
 <img src="{{artistController.oneArtist.photoUrl}}">
+
