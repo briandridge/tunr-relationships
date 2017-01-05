@@ -31,6 +31,15 @@ var extraArtists = [
 	home_address:'Your Dreams'
 }];
 
+var theAD = [
+{
+	headline:'Doin it as hard as I can',
+	url:'http://www.relatably.com/m/img/dave-chappelle-memes/image.jpg '
+}];
+
+console.log("theAD" + theAD);
+console.log("lucySongs" + lucySongs);
+
 var artistCreate = function() {
 	return DB.Artist.create({
     name: 'Luciano Pavarotti',
@@ -55,13 +64,24 @@ var managerCreate = function() {
     cell_phone_number: '718-989-1231'
 	})
 	.then (function(manager){
+		theAD.forEach(function(ad){
+		ad.managerId = manager.id;
+
+	});
 		extraArtists.forEach(function(artist){
 			artist.managerId = manager.id;
 			console.log(artist.managerId);
 		});
 		console.log(manager.id);
 	DB.Artist.bulkCreate(extraArtists);
+	DB.Ad.bulkCreate(theAD);
 	});
+
+	// .then( function(adresponse){
+	// 	console.log("YEEEP!" + adresponse);
+	// 	console.log(adresponse.id);
+	// 	console.log(theAD.managerId);
+	// });
 };
 
 
