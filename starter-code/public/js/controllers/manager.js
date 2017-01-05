@@ -13,6 +13,7 @@ function ManagerIndexController($http) {
 		$http.get('/api/managers')
 			.then(function(response) {
 				vm.allManagers = response.data;
+				console.log(response.data);
 			});		
 	}
 
